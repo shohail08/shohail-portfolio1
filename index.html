@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Shohail — data-driven systems, software and AI portfolio.">
+<title>Shohail — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pixel:"Silkscreen",monospace;
+  --body:"Pixelify Sans",monospace;
+  --cream:#fff8e7;
+  --yellow:#ffe84d;
+  --black:#070707;
+  --glass:rgba(0,0,0,.42);
+  --line:rgba(255,248,231,.8);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#000;color:var(--cream);font-family:var(--body);overflow-x:hidden}
+a{color:inherit}
+.video-bg{position:fixed;inset:0;z-index:-20;background:#111;overflow:hidden}
+.video-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.video-bg:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.12);pointer-events:none}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px 30px;text-shadow:2px 2px #000}
+.brand{font-family:var(--pixel);font-size:13px;letter-spacing:1px}
+.status{font-family:var(--pixel);font-size:10px;display:flex;align-items:center;gap:8px}
+.status i{width:7px;height:7px;background:#72ff67;box-shadow:0 0 10px #72ff67}
+.screen{position:relative;min-height:100vh}
+.hero{height:100vh;min-height:650px;position:relative;overflow:hidden}
+.hero-copy{position:absolute;left:6.5vw;top:19vh;z-index:12;max-width:720px;text-shadow:4px 4px 0 rgba(0,0,0,.8)}
+.kicker{font-family:var(--pixel);font-size:12px;margin-bottom:14px}
+h1{font-family:var(--body);font-weight:700;font-size:clamp(62px,8.5vw,128px);line-height:.82;letter-spacing:-2px;margin:0 0 20px}
+h1 span{color:var(--yellow)}
+.tagline{font-family:var(--body);font-size:clamp(28px,3.5vw,48px);font-weight:600;line-height:.98;margin:0;max-width:650px}
+.charizard{position:absolute;z-index:15;left:50%;bottom:4vh;width:min(420px,30vw);min-width:280px;transform:translateX(-50%);image-rendering:pixelated;filter:drop-shadow(7px 9px 0 rgba(0,0,0,.38));animation:idle 2.6s steps(4,end) infinite;transition:filter .15s}
+.charizard img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.charizard.active{filter:drop-shadow(7px 9px 0 rgba(0,0,0,.4)) drop-shadow(0 0 18px rgba(255,220,60,.75));animation:react .5s steps(4,end) infinite}
+@keyframes idle{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-7px)}}
+@keyframes react{0%,100%{transform:translate(-50%,0) scale(1)}50%{transform:translate(-50%,-12px) scale(1.025)}}
+
+.menu-wrap{position:absolute;z-index:20;right:6.5vw;top:50%;transform:translateY(-42%);width:270px}
+.menu{padding:13px 15px;background:rgba(0,0,0,.36);border:2px solid rgba(255,248,231,.9);box-shadow:6px 6px 0 rgba(0,0,0,.4)}
+.menu a{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--pixel);font-size:10px;line-height:1;padding:8px 9px;margin:1px 0;border:1px solid transparent;text-shadow:2px 2px #000}
+.menu a:before{content:"▶";color:var(--yellow);opacity:0;font-size:8px}
+.menu a:hover,.menu a:focus-visible{background:rgba(255,255,255,.13);border-color:rgba(255,248,231,.45);outline:0}
+.menu a:hover:before,.menu a:focus-visible:before{opacity:1}
+.menu .resume{color:var(--yellow)}
+.menu .mail{color:#fff}
+.scroll-note{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:var(--pixel);font-size:8px;text-shadow:2px 2px #000;animation:blink 1.2s steps(2,end) infinite}
+@keyframes blink{50%{opacity:.25}}
+
+.section{min-height:100vh;padding:100px 6.5vw;display:flex;align-items:center;position:relative}
+.panel{width:min(1080px,100%);margin:auto;background:rgba(0,0,0,.62);border:2px solid var(--line);box-shadow:8px 8px 0 rgba(0,0,0,.42);padding:30px}
+.panel h2{font-family:var(--pixel);font-size:18px;color:var(--yellow);margin:0 0 18px;text-shadow:3px 3px #000}
+.panel>p{font-size:24px;line-height:1.25;margin:0 0 18px;text-shadow:2px 2px #000}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:rgba(0,0,0,.42);border:1px solid rgba(255,248,231,.55);padding:18px;transition:transform .12s,background .12s}
+.card:hover{transform:translate(-3px,-3px);background:rgba(0,0,0,.58)}
+.card h3{font-family:var(--body);font-size:27px;line-height:1;margin:0 0 8px}
+.card p{font-size:18px;line-height:1.2;margin:0 0 12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:13px}
+.tag{font-family:var(--pixel);font-size:7px;border:1px solid var(--cream);padding:6px 7px;background:rgba(0,0,0,.7)}
+.actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-family:var(--pixel);font-size:8px;padding:10px 12px;background:var(--cream);color:#000;border:2px solid #000;box-shadow:4px 4px 0 rgba(0,0,0,.75)}
+.btn:hover{background:var(--yellow);transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(0,0,0,.75)}
+.btn.dark{background:#000;color:var(--cream);border-color:var(--cream)}
+.skills{display:flex;flex-wrap:wrap;gap:7px}
+.skill{font-family:var(--pixel);font-size:8px;border:1px solid var(--cream);padding:9px;background:rgba(0,0,0,.65)}
+.contact-grid{display:flex;gap:10px;flex-wrap:wrap}
+footer{padding:22px;text-align:center;background:#050505;font-family:var(--pixel);font-size:7px}
+@media(max-width:900px){
+  .hero-copy{left:5vw;right:5vw;top:14vh;text-align:center;margin:auto}
+  h1{font-size:clamp(52px,12vw,90px)}
+  .tagline{font-size:clamp(23px,5vw,34px);margin:auto}
+  .charizard{width:min(390px,55vw);min-width:230px;bottom:25vh}
+  .menu-wrap{top:auto;bottom:3vh;left:50%;right:auto;transform:translateX(-50%);width:min(420px,90vw)}
+  .menu{display:grid;grid-template-columns:1fr 1fr;gap:1px;padding:7px}
+  .menu a{font-size:7px;padding:8px 5px}
+  .menu a:before{display:none}
+  .scroll-note{display:none}
+  .section{padding:90px 5vw}
+  .panel{padding:22px}
+}
+@media(max-width:560px){
+  .topbar{padding:15px}.brand{font-size:9px}.status{font-size:7px}
+  .hero{min-height:760px}
+  .hero-copy{top:12vh}
+  .charizard{width:70vw;bottom:25vh}
+  .menu-wrap{bottom:2vh}
+  .menu a{font-size:6px}
+  .grid{grid-template-columns:1fr}
+  .panel h2{font-size:13px}.panel>p{font-size:19px}.card h3{font-size:22px}.card p{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="video-bg" aria-hidden="true">
+  <video id="bgVideo" autoplay muted playsinline loop preload="auto">
+    <source src="assets/pokemon-background-14s.mp4" type="video/mp4">
+  </video>
+</div>
+
+<header class="topbar">
+  <div class="brand">SHOHAIL.EXE</div>
+  <div class="status"><i></i> ONLINE</div>
+</header>
+
+<main class="screen">
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="kicker">WELCOME TO MY WORLD</div>
+    <h1>Hey, I'm <span>Shohail</span> 👋</h1>
+    <p class="tagline">I build data-driven systems &amp; software.</p>
+  </div>
+
+  <div class="charizard" id="charizard">
+    <img src="assets/charizard.gif" alt="Pixel Charizard">
+  </div>
+
+  <div class="menu-wrap">
+    <nav class="menu" aria-label="Portfolio navigation">
+      <a href="#about">ABOUT ME</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#skills">SKILLS</a>
+      <a class="resume" id="resumeView" target="_blank" rel="noopener">RESUME ↗</a>
+      <a id="resumeDownload" download>DOWNLOAD RESUME ↓</a>
+      <a class="mail" id="emailLink">EMAIL ↗</a>
+      <a href="#contact">CONTACT</a>
+      <a id="linkedin" target="_blank" rel="noopener">LINKEDIN ↗</a>
+      <a id="github" target="_blank" rel="noopener">GITHUB ↗</a>
+    </nav>
+  </div>
+
+  <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
+</section>
+
+<section class="section" id="about">
+  <div class="panel">
+    <h2>01 / ABOUT ME</h2>
+    <p>I'm Shohail, an engineering graduate interested in data, software and AI. I like turning messy problems into practical systems — from data collection and analysis to automation and end-to-end pipelines.</p>
+    <div class="actions">
+      <a class="btn" id="aboutLinkedin" target="_blank" rel="noopener">LINKEDIN ↗</a>
+      <a class="btn dark" id="aboutGithub" target="_blank" rel="noopener">GITHUB ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="panel">
+    <h2>02 / EXPERIENCE</h2>
+    <div class="card">
+      <h3>Business Analytics / Data Science Intern</h3>
+      <p>Built practical data collection and automation workflows for an advertising-focused business, including web scraping, data cleaning, enrichment and pipeline improvements.</p>
+      <div class="tags"><span class="tag">PYTHON</span><span class="tag">SELENIUM</span><span class="tag">PANDAS</span><span class="tag">DATA PIPELINES</span><span class="tag">AUTOMATION</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="panel">
+    <h2>03 / PROJECTS</h2>
+    <div class="grid" id="projectGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="panel">
+    <h2>04 / SKILLS</h2>
+    <div class="skills">
+      <span class="skill">PYTHON</span><span class="skill">SQL</span><span class="skill">PANDAS</span><span class="skill">NUMPY</span>
+      <span class="skill">SELENIUM</span><span class="skill">BEAUTIFULSOUP</span><span class="skill">MACHINE LEARNING</span>
+      <span class="skill">DATA ANALYTICS</span><span class="skill">ETL / PIPELINES</span><span class="skill">GIT / GITHUB</span>
+      <span class="skill">POWER BI</span><span class="skill">POSTGRESQL</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="panel">
+    <h2>05 / CONTACT</h2>
+    <p>Want to talk about a role, a project, or something you're building?</p>
+    <div class="contact-grid">
+      <a class="btn" id="contactEmail">EMAIL ME ↗</a>
+      <a class="btn dark" id="contactLinkedin" target="_blank" rel="noopener">LINKEDIN ↗</a>
+      <a class="btn dark" id="contactGithub" target="_blank" rel="noopener">GITHUB ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> SHOHAIL AKTHAR · BUILT FOR THE WEB</footer>
+
+<script src="content.js"></script>
+<script>
+const p=window.PORTFOLIO;
+const char=document.getElementById("charizard");
+document.querySelectorAll(".menu a").forEach(a=>{
+  a.addEventListener("mouseenter",()=>char.classList.add("active"));
+  a.addEventListener("mouseleave",()=>char.classList.remove("active"));
+  a.addEventListener("focus",()=>char.classList.add("active"));
+  a.addEventListener("blur",()=>char.classList.remove("active"));
+});
+function setLink(id,url){const el=document.getElementById(id); if(el) el.href=url;}
+setLink("resumeView",p.resumeView);
+setLink("resumeDownload",p.resumeDownload);
+setLink("linkedin",p.linkedin); setLink("github",p.github);
+setLink("aboutLinkedin",p.linkedin); setLink("aboutGithub",p.github);
+setLink("contactLinkedin",p.linkedin); setLink("contactGithub",p.github);
+const emailHref = p.email && p.email !== "YOUR_EMAIL_HERE" ? "mailto:"+p.email : "#";
+["emailLink","contactEmail"].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el){el.href=emailHref; if(emailHref==="#") el.title="Add your email in content.js";}
+});
+
+const grid=document.getElementById("projectGrid");
+p.projects.forEach((x)=>{
+  const card=document.createElement("article");
+  card.className="card";
+  card.innerHTML=`
+    <h3>${x.title}</h3>
+    <p>${x.description}</p>
+    <div class="tags">${x.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+    <div class="actions"><a class="btn" href="${x.link}" target="_blank" rel="noopener">VIEW PROJECT ↗</a></div>`;
+  grid.appendChild(card);
+});
+
+const video=document.getElementById("bgVideo");
+video.addEventListener("timeupdate",()=>{if(video.currentTime>=13.98) video.currentTime=0;});
+video.play().catch(()=>{});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
